@@ -116,6 +116,15 @@ public class Main {
             }
         }
     }
+    
+     private static void countRepeatingElementsInListUsingJava8() {
+        List<Integer> list = new ArrayList<>(Arrays.asList(1,2,1,3,2,5,3,1,2));
+
+        Map<Object, Long> map = list.stream()
+                .collect(Collectors.groupingBy(val -> val,Collectors.counting()));
+
+        map.forEach((k,v) -> System.out.println(k+":"+v));
+    }
 
     private static void printCommonCharactersInStringRudderStackQuestion(String s) {
         String removedSpacedAndLowerCseString = s.replace(" ","").toLowerCase();
